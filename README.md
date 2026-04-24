@@ -4,7 +4,7 @@
 
 ![Build](https://img.shields.io/badge/build-passing-22c55e)
 ![License: MIT](https://img.shields.io/badge/license-MIT-111111)
-[![Tag](https://img.shields.io/github/v/tag/Y7XIFIED/lumin-forge)](https://github.com/Y7XIFIED/lumin-forge/tags)
+[![Version](https://img.shields.io/github/v/tag/Y7XIFIED/lumin-forge?label=version&sort=semver)](https://github.com/Y7XIFIED/lumin-forge/tags)
 
 ## Features
 
