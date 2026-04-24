@@ -35,7 +35,7 @@ npm run preview
 
 ## Live Demo
 
-[Open demo](https://...)
+[Open demo](https://lumin-forge.vercel.app)
 
 ## License
 
