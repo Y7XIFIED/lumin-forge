@@ -1,0 +1,788 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+@font-face {
+  font-family: "TerminaTest";
+  src: url("../font/termina-test/TerminaTest-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TerminaTest";
+  src: url("../font/termina-test/TerminaTest-Medium.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TerminaTest";
+  src: url("../font/termina-test/TerminaTest-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TerminaTest";
+  src: url("../font/termina-test/TerminaTest-Heavy.otf") format("opentype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white font-sans overflow-x-hidden;
+    cursor: none;
+    margin: 0;
+    padding: 0;
+    overscroll-behavior-y: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Custom noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Hide scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
+
+/* Vertical text for decorative elements */
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Prevent layout shifts */
+* {
+  box-sizing: border-box;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: none !important;
+}
+
+.perf-lite,
+.perf-lite * {
+  cursor: auto !important;
+}
+
+.perf-lite * {
+  animation: none !important;
+  transition-duration: 120ms !important;
+}
+
+.perf-lite .noise-overlay {
+  opacity: 0.01;
+}
+
+.top-nav-btn {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 9999px;
+  min-width: 5.4rem;
+  height: 2rem;
+  padding: 0 0.68rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 0.74);
+  transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.top-nav-btn::before {
+  content: none;
+}
+
+.top-nav-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.top-nav-icon-btn {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.76);
+  transition: color 220ms ease, border-color 220ms ease, background-color 220ms ease;
+}
+
+.top-nav-icon-btn:hover {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.top-float-btn {
+  position: fixed;
+  right: calc(1.2rem + env(safe-area-inset-right));
+  bottom: calc(1.2rem + env(safe-area-inset-bottom));
+  z-index: 120;
+  width: 2.55rem;
+  height: 2.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 9999px;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.78);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 240ms ease;
+  animation: topButtonEnter 260ms ease;
+}
+
+.top-float-btn:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.14);
+  transform: translateY(-1px);
+  background: rgba(10, 10, 14, 0.8);
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.quick-action-btn {
+  border: 1px solid rgba(255, 42, 42, 0.62);
+  background: rgba(0, 0, 0, 0.72);
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  padding: 0.5rem 0.62rem 0.5rem 0.8rem;
+  transition: all 220ms ease;
+}
+
+.quick-action-btn:hover {
+  border-color: rgba(255, 42, 42, 1);
+  color: #fff;
+  box-shadow: 0 0 16px rgba(255, 42, 42, 0.4);
+  transform: translateY(-1px);
+}
+
+.pixel-cursor-main {
+  position: fixed;
+  z-index: 10000;
+  width: 14px;
+  height: 14px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  background: #ff2a2a;
+  box-shadow: 0 0 0 2px rgba(255, 42, 42, 0.35), 0 0 14px rgba(255, 42, 42, 0.72);
+  image-rendering: pixelated;
+}
+
+.cursor-fluid-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.82;
+}
+
+.pixel-cursor-trail {
+  position: fixed;
+  z-index: 9999;
+  width: 8px;
+  height: 8px;
+  pointer-events: none;
+  background: rgba(255, 42, 42, 0.7);
+  image-rendering: pixelated;
+}
+
+.easter-toast {
+  position: fixed;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 140;
+  border: 1px solid rgba(255, 42, 42, 0.75);
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 999px;
+  padding: 0.45rem 0.8rem 0.45rem 1rem;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.94);
+  animation: topButtonEnter 200ms ease;
+}
+
+.secret-panel {
+  position: fixed;
+  right: 1rem;
+  top: 6rem;
+  z-index: 140;
+  border: 1px solid rgba(255, 42, 42, 0.55);
+  background: rgba(0, 0, 0, 0.88);
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
+  min-width: 240px;
+  box-shadow: 0 0 20px rgba(255, 42, 42, 0.28);
+}
+
+.font-mode-normal {
+  font-family: "TerminaTest", "Inter", system-ui, sans-serif;
+}
+
+.font-mode-ascii {
+  font-family: "VT323", "Press Start 2P", monospace;
+  letter-spacing: 0.03em;
+}
+
+.font-mode-ascii h1,
+.font-mode-ascii h2,
+.font-mode-ascii h3,
+.font-mode-ascii h4,
+.font-mode-ascii h5,
+.font-mode-ascii h6,
+.font-mode-ascii .top-nav-btn,
+.font-mode-ascii .top-float-btn,
+.font-mode-ascii .quick-action-btn {
+  font-family: "Press Start 2P", monospace !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.font-mode-ascii p,
+.font-mode-ascii span,
+.font-mode-ascii li {
+  font-family: "VT323", monospace;
+  font-size: 1.06em;
+}
+
+.font-mode-ascii a,
+.font-mode-ascii button {
+  font-size: inherit;
+  line-height: 1;
+}
+
+.font-mode-ascii .top-nav-btn {
+  height: 2.4rem;
+  padding: 0 0.7rem;
+  line-height: 1;
+}
+
+.font-mode-ascii .top-nav-icon-btn {
+  height: 2.4rem;
+  width: 2.4rem;
+}
+
+.font-mode-ascii .top-float-btn {
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  line-height: 1;
+}
+
+.font-mode-ascii .quick-action-btn {
+  padding: 0.48rem 0.58rem 0.44rem 0.74rem;
+  line-height: 1;
+}
+
+.pixel-ui {
+  font-family: "Press Start 2P", monospace !important;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.luminforge-logo-v2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.56rem;
+  min-height: 2.2rem;
+  padding: 0.24rem 0.5rem;
+  border-radius: 0.62rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: linear-gradient(120deg, rgba(8, 8, 10, 0.9), rgba(14, 14, 18, 0.85));
+  transition: border-color 220ms ease, background-color 220ms ease;
+}
+
+.luminforge-logo-v2:hover {
+  border-color: rgba(255, 255, 255, 0.34);
+  background: linear-gradient(120deg, rgba(10, 10, 12, 0.94), rgba(16, 16, 20, 0.9));
+}
+
+.lf-mark {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.22), rgba(255, 42, 42, 0.16) 42%, rgba(0, 0, 0, 0.86));
+  overflow: hidden;
+}
+
+.lf-mark-ring {
+  position: absolute;
+  inset: 2.6px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 999px;
+}
+
+.lf-mark-core {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.45);
+}
+
+.lf-mark-bars {
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  width: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 4px 0 rgba(255, 255, 255, 0.56), 0 8px 0 rgba(255, 255, 255, 0.32);
+}
+
+.lf-word {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.lf-title {
+  font-family: "TerminaTest", "Space Grotesk", sans-serif;
+  font-size: 0.78rem;
+  font-weight: 650;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.lf-sub {
+  margin-top: 0.18rem;
+  font-family: "IBM Plex Mono", "Space Mono", monospace;
+  font-size: 0.42rem;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.logo-home-btn {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  line-height: 1;
+  cursor: none;
+}
+
+.logo-home-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.nav-click-pop {
+  animation: navClickPop 0.46s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes navClickPop {
+  0% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  45% {
+    transform: scale(0.95);
+    filter: brightness(1.16);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+.LuminForge-signature {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.4rem 0.6rem 0.5rem 0.2rem;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.LuminForge-main {
+  font-size: clamp(2.3rem, 7vw, 4.4rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.92);
+  text-shadow: 0 0 16px rgba(255, 42, 42, 0.16);
+  animation: y7DecryptPulse 2.4s ease-in-out infinite;
+}
+
+.y7x-subscript {
+  font-size: 0.64rem;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  color: rgba(255, 42, 42, 0.75);
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.y7x-scan-line {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 42, 42, 0.9), transparent);
+  animation: y7Scan 2.8s linear infinite;
+  pointer-events: none;
+}
+
+.LuminForge-signature:hover .LuminForge-main {
+  color: #ffffff;
+  text-shadow: 0 0 26px rgba(255, 42, 42, 0.5);
+}
+
+.font-mode-ascii .lf-title,
+.font-mode-ascii .lf-sub,
+.font-mode-ascii .LuminForge-main {
+  font-family: "Press Start 2P", monospace !important;
+}
+
+.always-ascii {
+  font-family: "Press Start 2P", "VT323", "IBM Plex Mono", monospace !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1.04;
+}
+
+.retro-mode {
+  animation: retroPulse 1.8s steps(2, end) infinite;
+}
+
+@keyframes retroPulse {
+  0% {
+    filter: contrast(1) saturate(1);
+  }
+  50% {
+    filter: contrast(1.07) saturate(1.12);
+  }
+  100% {
+    filter: contrast(1) saturate(1);
+  }
+}
+
+.pulse-red {
+  animation: pulseRed 2.8s ease-in-out infinite;
+}
+
+@keyframes pulseRed {
+  0% {
+    box-shadow: 0 0 0 rgba(255, 42, 42, 0);
+  }
+  50% {
+    box-shadow: 0 0 24px rgba(255, 42, 42, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 rgba(255, 42, 42, 0);
+  }
+}
+
+@keyframes topButtonEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes logoPulse {
+  0%,
+  100% {
+    opacity: 0.92;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes logoGlint {
+  0% {
+    text-shadow: 0 0 0 rgba(255, 42, 42, 0);
+  }
+  50% {
+    text-shadow: 0 0 12px rgba(255, 42, 42, 0.75);
+  }
+  100% {
+    text-shadow: 0 0 0 rgba(255, 42, 42, 0);
+  }
+}
+
+@keyframes y7DecryptPulse {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.92;
+  }
+  50% {
+    transform: translateY(-1px);
+    opacity: 1;
+  }
+}
+
+@keyframes y7Scan {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.topbar-ascii .top-nav-btn,
+.topbar-ascii .lf-title,
+.topbar-ascii .lf-sub {
+  font-family: "Press Start 2P", monospace;
+  text-transform: uppercase;
+}
+
+.topbar-ascii .top-nav-btn {
+  letter-spacing: 0.08em;
+  min-width: 6.2rem;
+  height: 2.2rem;
+}
+
+.topbar-ascii .lf-title {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+}
+
+.topbar-ascii .lf-sub {
+  font-size: 0.4rem;
+  letter-spacing: 0.15em;
+}
+
+.system-core-ascii {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border-radius: 0.7rem;
+  border: 1px solid rgba(255, 42, 42, 0.26);
+  background: rgba(0, 0, 0, 0.46);
+  color: rgba(255, 196, 196, 0.88);
+  font-family: "IBM Plex Mono", "VT323", monospace;
+  font-size: clamp(0.5rem, 1.25vw, 0.74rem);
+  line-height: 1.25;
+  letter-spacing: 0.03em;
+  overflow-x: auto;
+  text-shadow: 0 0 8px rgba(255, 42, 42, 0.2);
+}
+
+.system-core-scope .system-core-label {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.52rem, 0.72vw, 0.66rem);
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.system-core-scope .system-core-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(1rem, 2.45vw, 2.42rem);
+  line-height: 1.26;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.system-core-scope .system-core-accent {
+  font-style: normal;
+}
+
+.system-core-scope .system-core-grid {
+  font-family: "VT323", monospace;
+  font-size: clamp(1.28rem, 1.86vw, 1.9rem);
+  line-height: 1.38;
+  letter-spacing: 0.015em;
+}
+
+.system-core-scope .system-core-copy {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .system-core-scope .system-core-title {
+    font-size: clamp(0.9rem, 4.25vw, 1.3rem);
+    line-height: 1.35;
+  }
+
+  .system-core-scope .system-core-grid {
+    font-size: clamp(1.15rem, 5vw, 1.42rem);
+    line-height: 1.4;
+  }
+}
+
+.hero-ascii-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(1.02rem, 3.45vw, 2.5rem);
+  line-height: 1.22;
+  letter-spacing: 0.035em;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.hero-ascii-copy {
+  font-family: "VT323", monospace;
+  font-size: clamp(1.08rem, 1.46vw, 1.56rem);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 768px) {
+  .hero-ascii-title {
+    font-size: clamp(0.86rem, 4.45vw, 1.14rem);
+    line-height: 1.3;
+  }
+
+  .hero-ascii-copy {
+    font-size: clamp(1rem, 4.5vw, 1.24rem);
+    line-height: 1.36;
+  }
+}
+
+.philosophy-ascii-scope .philosophy-ascii-kicker {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.5rem, 0.72vw, 0.65rem);
+  line-height: 1.52;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+}
+
+.philosophy-ascii-scope .philosophy-ascii-main {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.95rem, 2.2vw, 2.05rem);
+  line-height: 1.34;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.philosophy-ascii-scope .philosophy-ascii-index {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.48rem, 0.65vw, 0.62rem);
+  line-height: 1;
+  letter-spacing: 0.08em;
+}
+
+.philosophy-ascii-scope .philosophy-ascii-card-title {
+  font-family: "Press Start 2P", monospace;
+  font-size: clamp(0.76rem, 1.08vw, 1rem);
+  line-height: 1.42;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.philosophy-ascii-scope .philosophy-ascii-card-copy {
+  font-family: "VT323", monospace;
+  font-size: clamp(1.02rem, 1.26vw, 1.32rem);
+  line-height: 1.34;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .philosophy-ascii-scope .philosophy-ascii-main {
+    font-size: clamp(0.84rem, 4.25vw, 1.12rem);
+    line-height: 1.36;
+  }
+
+  .philosophy-ascii-scope .philosophy-ascii-card-title {
+    font-size: clamp(0.68rem, 3.05vw, 0.84rem);
+    line-height: 1.45;
+  }
+
+  .philosophy-ascii-scope .philosophy-ascii-card-copy {
+    font-size: clamp(0.96rem, 4.6vw, 1.18rem);
+    line-height: 1.36;
+  }
+}
+
+.hero-ascii-title .hero-ascii-line {
+  margin-top: 0.34em;
+}
+
+@media (max-width: 768px) {
+  .hero-ascii-title .hero-ascii-line {
+    margin-top: 0.28em;
+  }
+}
