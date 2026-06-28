@@ -30,26 +30,109 @@ Interact dynamically with your mouse or touch to explore the visual effects! Mov
    ```
 
 ## 📂 Project Structure
-
-- 📁 **.vercel/**
-- 📁 **assets/**
-- 📁 **dist/**
-- 📁 **font/**
-- 📁 **src/**
-- 📄 `.gitattributes`
-- 📄 `.gitignore`
-- 📄 `dev.err`
-- 📄 `dev.log`
-- 📄 `index.html`
-- 📄 `luminforge_manifest.json`
-- 📄 `LuminForge.md`
-- 📄 `LuminForge.mp4`
-- 📄 `package-lock.json`
-- 📄 `package.json`
-- 📄 `postcss.config.js`
-- 📄 `README.md`
-- 📄 `tailwind.config.js`
-- 📄 `vite.config.ts`
+```text
+Lumin Forge/
+├── .vercel
+│   ├── project.json
+│   └── README.txt
+├── assets
+│   └── footer.png
+├── dist
+│   ├── assets
+│   │   ├── index-CmX0_mjM.css
+│   │   ├── index-Cu1Prjoy.js
+│   │   ├── TerminaTest-Bold-C5cReKlJ.otf
+│   │   ├── TerminaTest-Heavy-C1j_kfe-.otf
+│   │   ├── TerminaTest-Medium-C94JgEIN.otf
+│   │   └── TerminaTest-Regular-DWAQ7vN_.otf
+│   └── index.html
+├── font
+│   └── termina-test
+│       ├── TerminaTest-Black.otf
+│       ├── TerminaTest-Bold.otf
+│       ├── TerminaTest-Demi.otf
+│       ├── TerminaTest-ExtraLight.otf
+│       ├── TerminaTest-Heavy.otf
+│       ├── TerminaTest-Light.otf
+│       ├── TerminaTest-Medium.otf
+│       ├── TerminaTest-Regular.otf
+│       └── TerminaTest-Thin.otf
+├── src
+│   ├── assets
+│   │   └── main-hero.png
+│   ├── components
+│   │   ├── ASCIIText.tsx
+│   │   ├── CardNav.tsx
+│   │   ├── ChromaGrid.tsx
+│   │   ├── CommandTerminal.tsx
+│   │   ├── Consciousness.tsx
+│   │   ├── Cursor.tsx
+│   │   ├── DataThought.tsx
+│   │   ├── DecryptedText.tsx
+│   │   ├── Dither.tsx
+│   │   ├── ElasticSlider.tsx
+│   │   ├── EncryptionRain.tsx
+│   │   ├── FallingText.tsx
+│   │   ├── FaultyTerminal.tsx
+│   │   ├── FluidCursorEffect.tsx
+│   │   ├── GlassCard.tsx
+│   │   ├── GooeyNav.tsx
+│   │   ├── GradientBlinds.tsx
+│   │   ├── GradientText.tsx
+│   │   ├── GradualBlur.tsx
+│   │   ├── Hero.tsx
+│   │   ├── InteractiveTerminal.tsx
+│   │   ├── LaserFlow.tsx
+│   │   ├── LetterGlitch.tsx
+│   │   ├── Lightning.tsx
+│   │   ├── LogoLoop.tsx
+│   │   ├── MagicBento.tsx
+│   │   ├── MetallicPaint.tsx
+│   │   ├── ModuleShowcase.tsx
+│   │   ├── NeuralBackground.tsx
+│   │   ├── NeuralMap.tsx
+│   │   ├── Orb.tsx
+│   │   ├── Philosophy.tsx
+│   │   ├── PillNav.tsx
+│   │   ├── PixelBlast.tsx
+│   │   ├── PixelCard.tsx
+│   │   ├── PixelCursor.tsx
+│   │   ├── ProfileCard.tsx
+│   │   ├── Projects.tsx
+│   │   ├── ScrambledText.tsx
+│   │   ├── ScrollReveal.tsx
+│   │   ├── ScrollVelocity.tsx
+│   │   ├── Shuffle.tsx
+│   │   ├── SmoothScroll.tsx
+│   │   ├── SpotlightCard.tsx
+│   │   ├── StaggeredMenu.tsx
+│   │   ├── SystemLogs.tsx
+│   │   ├── TargetCursor.tsx
+│   │   ├── TextCursor.tsx
+│   │   ├── TextType.tsx
+│   │   ├── TrueFocus.tsx
+│   │   └── Vision.tsx
+│   ├── scripts
+│   ├── styles
+│   ├── App.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── .gitattributes
+├── .gitignore
+├── dev.err
+├── dev.log
+├── index.html
+├── luminforge_manifest.json
+├── LuminForge.md
+├── LuminForge.mp4
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── README.md
+├── tailwind.config.js
+└── vite.config.ts
+```
 
 ## 💻 Tech Stack
 HTML5 & CSS3: Structural vectors and custom styling variables.
