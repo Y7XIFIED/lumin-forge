@@ -30,18 +30,26 @@ Interact dynamically with your mouse or touch to explore the visual effects! Mov
    ```
 
 ## 📂 Project Structure
-```text
-Lumin Forge/
-├── .vercel/
-├── assets/
-├── dist/
-│   └── assets/
-├── font/
-│   └── termina-test/
-└── src/
-    ├── assets/
-    └── components/
-```
+
+- 📁 **.vercel/**
+- 📁 **assets/**
+- 📁 **dist/**
+- 📁 **font/**
+- 📁 **src/**
+- 📄 `.gitattributes`
+- 📄 `.gitignore`
+- 📄 `dev.err`
+- 📄 `dev.log`
+- 📄 `index.html`
+- 📄 `luminforge_manifest.json`
+- 📄 `LuminForge.md`
+- 📄 `LuminForge.mp4`
+- 📄 `package-lock.json`
+- 📄 `package.json`
+- 📄 `postcss.config.js`
+- 📄 `README.md`
+- 📄 `tailwind.config.js`
+- 📄 `vite.config.ts`
 
 ## 💻 Tech Stack
 HTML5 & CSS3: Structural vectors and custom styling variables.
